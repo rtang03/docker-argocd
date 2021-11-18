@@ -3,7 +3,10 @@ RUN git clone --branch=20200403-1 --depth=1 https://github.com/camptocamp/helm-s
     cd helm-sops && \
     go build
 
-FROM argoproj/argocd:v2.1.6
+FROM argoproj/argocd:v2.1.7
+
+LABEL org.opencontainers.image.source https://github.com/rtang03/docker-argocd
+
 USER root
 COPY argocd-repo-server-wrapper /usr/local/bin/
 COPY --from=builder /go/helm-sops/helm-sops /usr/local/bin/
