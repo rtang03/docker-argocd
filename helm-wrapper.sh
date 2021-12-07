@@ -2,6 +2,9 @@
 
 # helm.bin is the original helm binary
 case $1 in
+  dependency*)
+    exec /usr/local/bin/helm.bin $@
+    ;;
   repo*)
     exec /usr/local/bin/helm.bin $@
     ;;
